@@ -27,10 +27,10 @@ public class CarFleet {
         this.carFleetDetails = carFleetDetails;
     }
 
-    public Car addProduct() {
-        Car p = new Car();
-        carFleetDetails.add(p);
-        return p;
+    public Car addNewCar() {
+        Car newcar = new Car();
+        carFleetDetails.add(newcar);
+        return newcar;
     }
 
     public void removeCar(Car c) {

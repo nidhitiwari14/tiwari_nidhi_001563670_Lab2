@@ -39,7 +39,7 @@
                               <Component id="txtModelNum" alignment="1" max="32767" attributes="0"/>
                               <Component id="txtSerialNum" alignment="1" max="32767" attributes="0"/>
                               <Component id="txtManufacturer" alignment="1" max="32767" attributes="0"/>
-                              <Component id="txtManufacuredDate" alignment="1" max="32767" attributes="0"/>
+                              <Component id="txtManufacturedDate" alignment="1" max="32767" attributes="0"/>
                               <Component id="txtSeatCapacity" alignment="1" max="32767" attributes="0"/>
                               <Component id="txtUsedBy" alignment="1" max="32767" attributes="0"/>
                               <Component id="txtCity" alignment="1" pref="187" max="32767" attributes="0"/>
@@ -48,22 +48,26 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lblLastUpdated" min="-2" max="-2" attributes="0"/>
                               <Component id="lblMaintenanceCertExpDate" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblLastUpdated" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtMaintenanceCerExpDate" max="32767" attributes="0"/>
-                              <Component id="txtLastUpdated" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnSave" min="-2" pref="116" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="71" max="32767" attributes="0"/>
+                              <Component id="txtMaintenanceCertExpDate" alignment="1" max="32767" attributes="0"/>
+                              <Component id="txtLastUpdated" alignment="1" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btnSave" min="-2" pref="116" max="-2" attributes="0"/>
+                                      <Component id="chkboxAvailable" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="101" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="306" max="32767" attributes="0"/>
+              <EmptySpace pref="276" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -90,7 +94,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblManufacturedDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtManufacuredDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtManufacturedDate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -110,16 +114,20 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblMaintenanceCertExpDate" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtMaintenanceCerExpDate" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtMaintenanceCertExpDate" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblLastUpdated" min="-2" max="-2" attributes="0"/>
                   <Component id="txtLastUpdated" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="chkboxAvailable" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -187,7 +195,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtManufacturer">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtManufacuredDate">
+    <Component class="javax.swing.JTextField" name="txtManufacturedDate">
     </Component>
     <Component class="javax.swing.JTextField" name="txtSeatCapacity">
     </Component>
@@ -195,7 +203,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtCity">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtMaintenanceCerExpDate">
+    <Component class="javax.swing.JTextField" name="txtMaintenanceCertExpDate">
     </Component>
     <Component class="javax.swing.JTextField" name="txtLastUpdated">
     </Component>
@@ -206,6 +214,16 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Is Available:"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.Checkbox" name="chkboxAvailable">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="checkbox1"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
