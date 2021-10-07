@@ -5,6 +5,7 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.CarFleet;
 import model.Car;
@@ -88,6 +89,11 @@ public class ViewJPanel extends javax.swing.JPanel {
         btnViewCarDetails.setText("View");
 
         btnDeleteCarDetails.setText("Delete");
+        btnDeleteCarDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteCarDetailsActionPerformed(evt);
+            }
+        });
 
         lblCity.setText("City:");
 
@@ -230,6 +236,23 @@ public class ViewJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtModelNumActionPerformed
 
+    private void btnDeleteCarDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCarDetailsActionPerformed
+        int selectedRowIndex = tblViewCarDetails.getSelectedRow();
+        
+        if(selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblViewCarDetails.getModel();
+        Car selectedCar = (Car) model.getValueAt(selectedRowIndex, 0);
+        
+        carFleetDetails.removeCar(selectedCar);
+        JOptionPane.showMessageDialog(this, "Car deleted");
+        
+        populateTable();
+    }//GEN-LAST:event_btnDeleteCarDetailsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeleteCarDetails;
@@ -265,7 +288,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         for(Car c: carFleetDetails.getCarFleetDetails()) {
             Object [] row = new Object[6];
-            row[0] = c.getModelNumber();
+            row[0] = c;
             row[1] = c.getSerialNumber();
             row[2] = c.getManufacturer();
             row[3] = c.getManufacturedDate();

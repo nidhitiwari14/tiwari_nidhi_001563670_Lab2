@@ -36,6 +36,7 @@ public class CarFleet {
     public void removeCar(Car c) {
         carFleetDetails.remove(c);
     }
+    
 
     public Car searchCar(int id) {
         for (Car car : carFleetDetails) {

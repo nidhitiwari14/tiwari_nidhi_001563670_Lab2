@@ -24,11 +24,6 @@ public class Car {
     
     private static int count = 0;
     
-    @Override
-    public String toString() {
-        return manufacturer;
-    }
-    
     public Car() {
         count++;
         modelNumber = count;
@@ -44,6 +39,11 @@ public class Car {
 
     public int getModelNumber() {
         return modelNumber;
+    }
+    
+    @Override
+    public String toString() {
+        return String.valueOf(modelNumber);
     }
 
     public void setModelNumber(int modelNumber) {
