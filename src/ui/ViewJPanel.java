@@ -506,7 +506,7 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         lblMaintenanceCertExpDate.setText("Maintenance Certificate Expire Date:");
 
-        jLabel2.setText("Is Available:");
+        jLabel2.setText("Car Availability:");
 
         lblManufacturedDate.setText("Manufactured Date:");
 

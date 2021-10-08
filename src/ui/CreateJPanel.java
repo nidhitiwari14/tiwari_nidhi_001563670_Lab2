@@ -5,6 +5,7 @@
  */
 package ui;
 
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import model.Car;
 import model.CarFleet;
@@ -22,10 +23,13 @@ public class CreateJPanel extends javax.swing.JPanel {
      * Creates new form CreateJPanel
      */
     CarFleet carFleetDetails;
+    public boolean isValid = false;
+    public boolean isFormValid = false;
             
     public CreateJPanel(CarFleet carFleetDetails) {
         initComponents();
         this.carFleetDetails = carFleetDetails;
+        btnSave.setEnabled(false);
     }
 
     /**
@@ -48,7 +52,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblMaintenanceCertExpDate = new javax.swing.JLabel();
         txtModelNum = new javax.swing.JTextField();
         txtSerialNum = new javax.swing.JTextField();
-        txtManufacturer = new javax.swing.JTextField();
         txtManufacturedDate = new javax.swing.JTextField();
         txtSeatCapacity = new javax.swing.JTextField();
         txtCity = new javax.swing.JTextField();
@@ -57,13 +60,22 @@ public class CreateJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         chkboxAvailable = new java.awt.Checkbox();
         comboBoxCreateUsedBy = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblModelNumErrMsg = new javax.swing.JLabel();
+        lblSerialNumErrMsg = new javax.swing.JLabel();
+        lblTitleSubHeading = new javax.swing.JLabel();
+        lblManuDateErrMsg = new javax.swing.JLabel();
+        lblMaintDateExpErrMsg = new javax.swing.JLabel();
+        comboBoxManufacturerCreate = new javax.swing.JComboBox<>();
+        lblSeatCapacityErrMsg = new javax.swing.JLabel();
 
         btnTitle.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnTitle.setText("Create Car Details");
 
-        lblCarModelNum.setText("Model Number:");
+        lblCarModelNum.setText("Model Number*:");
 
-        lblCarSerialNum.setText("Serial Number:");
+        lblCarSerialNum.setText("Serial Number*:");
 
         lblCarManufacturer.setText("Manufacturer:");
 
@@ -82,6 +94,66 @@ public class CreateJPanel extends javax.swing.JPanel {
                 txtModelNumActionPerformed(evt);
             }
         });
+        txtModelNum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtModelNumKeyPressed(evt);
+            }
+        });
+
+        txtSerialNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSerialNumActionPerformed(evt);
+            }
+        });
+        txtSerialNum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSerialNumKeyPressed(evt);
+            }
+        });
+
+        txtManufacturedDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtManufacturedDateActionPerformed(evt);
+            }
+        });
+        txtManufacturedDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtManufacturedDateKeyPressed(evt);
+            }
+        });
+
+        txtSeatCapacity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSeatCapacityActionPerformed(evt);
+            }
+        });
+        txtSeatCapacity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSeatCapacityKeyPressed(evt);
+            }
+        });
+
+        txtCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCityActionPerformed(evt);
+            }
+        });
+        txtCity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCityKeyPressed(evt);
+            }
+        });
+
+        txtMaintenanceCertExpDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMaintenanceCertExpDateActionPerformed(evt);
+            }
+        });
+        txtMaintenanceCertExpDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtMaintenanceCertExpDateKeyPressed(evt);
+            }
+        });
 
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -90,87 +162,143 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("Is Available:");
+        jLabel1.setText("Car Availability:");
 
-        chkboxAvailable.setLabel("checkbox1");
+        chkboxAvailable.setLabel("Is Available");
 
         comboBoxCreateUsedBy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Uber", "Lyft", "Ola" }));
         comboBoxCreateUsedBy.setSelectedIndex(-1);
+        comboBoxCreateUsedBy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxCreateUsedByActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
+        jLabel2.setText("Format MM/DD/YYYY");
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
+        jLabel3.setText("Format MM/DD/YYYY");
+
+        lblModelNumErrMsg.setText("           ");
+
+        lblSerialNumErrMsg.setText("           ");
+
+        lblTitleSubHeading.setText("Fields mark with * are mandatory");
+
+        lblManuDateErrMsg.setText("           ");
+
+        lblMaintDateExpErrMsg.setText("           ");
+
+        comboBoxManufacturerCreate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tesla", "Toyota", "GM", "Honda", "BMW" }));
+        comboBoxManufacturerCreate.setSelectedIndex(-1);
+        comboBoxManufacturerCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxManufacturerCreateActionPerformed(evt);
+            }
+        });
+
+        lblSeatCapacityErrMsg.setText("           ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblManufacturedDate)
+                    .addComponent(lblCarSerialNum)
+                    .addComponent(lblCarModelNum)
+                    .addComponent(lblCarManufacturer)
+                    .addComponent(lblSeatCapacity)
+                    .addComponent(lblUsedBy)
+                    .addComponent(lblCity)
+                    .addComponent(lblMaintenanceCertExpDate)
+                    .addComponent(jLabel1))
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(226, 226, 226)
-                        .addComponent(btnTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblManufacturedDate)
-                            .addComponent(lblCarSerialNum)
-                            .addComponent(lblCarModelNum)
-                            .addComponent(lblCarManufacturer)
-                            .addComponent(lblSeatCapacity)
-                            .addComponent(lblUsedBy)
-                            .addComponent(lblCity))
-                        .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtModelNum, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSerialNum, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtManufacturer, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtManufacturedDate, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSeatCapacity, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                            .addComponent(comboBoxCreateUsedBy, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(158, 158, 158)
-                                .addComponent(jLabel1)
-                                .addGap(4, 4, 4))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblMaintenanceCertExpDate)
-                                .addGap(8, 8, 8)))
-                        .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtMaintenanceCertExpDate)
-                                .addComponent(chkboxAvailable, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)))))
-                .addContainerGap(306, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(226, 226, 226)
+                                .addComponent(btnTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(206, 206, 206)
+                                .addComponent(lblTitleSubHeading))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtMaintenanceCertExpDate, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(lblMaintDateExpErrMsg))
+                            .addComponent(chkboxAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(170, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtSerialNum)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblSerialNumErrMsg))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtModelNum)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblModelNumErrMsg))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(comboBoxCreateUsedBy, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtCity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtSeatCapacity)
+                                .addGap(46, 46, 46)
+                                .addComponent(lblSeatCapacityErrMsg))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtManufacturedDate)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblManuDateErrMsg))
+                            .addComponent(comboBoxManufacturerCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(280, 280, 280)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCity, txtManufacturedDate, txtManufacturer, txtModelNum, txtSeatCapacity, txtSerialNum});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCity, txtManufacturedDate, txtModelNum, txtSeatCapacity, txtSerialNum});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(btnTitle)
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTitleSubHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCarModelNum)
-                    .addComponent(txtModelNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtModelNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblModelNumErrMsg)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCarSerialNum)
-                    .addComponent(txtSerialNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSerialNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSerialNumErrMsg))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCarManufacturer)
-                    .addComponent(txtManufacturer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxManufacturerCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblManufacturedDate)
-                    .addComponent(txtManufacturedDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtManufacturedDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblManuDateErrMsg))
+                .addGap(2, 2, 2)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSeatCapacity)
-                    .addComponent(txtSeatCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSeatCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSeatCapacityErrMsg))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsedBy)
@@ -179,17 +307,20 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCity)
                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMaintenanceCertExpDate)
-                    .addComponent(txtMaintenanceCertExpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtMaintenanceCertExpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMaintDateExpErrMsg))
+                .addGap(4, 4, 4)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(chkboxAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                    .addComponent(chkboxAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSave)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -198,49 +329,175 @@ public class CreateJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtModelNumActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        LocalDate localDate = LocalDate.parse(txtManufacturedDate.getText(), formatter);
-        LocalDate localDateCertExpire = LocalDate.parse(txtMaintenanceCertExpDate.getText(), formatter);
-        LocalDate todaysDate = LocalDate.now();
-        System.out.println("todaysDate" + todaysDate);
-        int modelNumber = Integer.parseInt(txtModelNum.getText());
-        int serialNumber = Integer.parseInt(txtSerialNum.getText());  
-        String manufacturer = txtManufacturer.getText();
-        LocalDate manufacturedDate = localDate;
-        int seatCapacity = Integer.parseInt(txtSeatCapacity.getText());
-        Object createdUsedByApp = comboBoxCreateUsedBy.getSelectedItem();
-        String usedBy = createdUsedByApp.toString();
-        LocalDate lastUpdated = todaysDate;
-        String city = txtCity.getText();
-        LocalDate maintenanceCertExpDate = localDateCertExpire;
-        Boolean IsAvailable = chkboxAvailable.getState();
-        
-        Car c = carFleetDetails.addNewCar();
-        
-        c.setModelNumber(modelNumber);
-        c.setSerialNumber(serialNumber);
-        c.setManufacturer(manufacturer);
-        c.setManufacturedDate(manufacturedDate);
-        c.setSeatCapacity(seatCapacity);
-        c.setUsedByApp(usedBy);
-        c.setIsAvailable(IsAvailable);
-        c.setLastUpdated(lastUpdated);
-        c.setCity(city);
-        c.setMaintenanceCertExpDate(maintenanceCertExpDate);
-        
-        JOptionPane.showMessageDialog(this, "New Car Record Added");
-        
-        txtModelNum.setText("");
-        txtSerialNum.setText("");
-        txtManufacturer.setText("");
-        txtManufacturedDate.setText("");
-        txtSeatCapacity.setText("");
-        comboBoxCreateUsedBy.setSelectedIndex(-1);
-        txtCity.setText("");
-        txtMaintenanceCertExpDate.setText("");
-        chkboxAvailable.setState(false);
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        if (!txtManufacturedDate.getText().isEmpty()) {
+           try
+            {
+                formatter.parse(txtManufacturedDate.getText());
+                lblManuDateErrMsg.setText("");
+                isFormValid = true;
+            }
+
+            catch (Exception e)
+            {
+                lblManuDateErrMsg.setText("Date Format is Invalid");
+                isFormValid = false;
+            } 
+        }
+        if (!txtMaintenanceCertExpDate.getText().isEmpty()) {
+           try
+            {
+                formatter.parse(txtMaintenanceCertExpDate.getText());
+                lblMaintDateExpErrMsg.setText("");
+                isFormValid = true;
+            }
+
+            catch (Exception e)
+            {
+                lblMaintDateExpErrMsg.setText("Date Format is Invalid");
+                isFormValid = false;
+            } 
+        }
+        if (isFormValid) {
+          DateTimeFormatter dformatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+            LocalDate localDate = LocalDate.parse(txtManufacturedDate.getText(), dformatter);
+            LocalDate localDateCertExpire = LocalDate.parse(txtMaintenanceCertExpDate.getText(), dformatter);
+            LocalDate todaysDate = LocalDate.now();
+            int modelNumber = Integer.parseInt(txtModelNum.getText());
+            int serialNumber = Integer.parseInt(txtSerialNum.getText());  
+            Object createdManufacturer = comboBoxManufacturerCreate.getSelectedItem();
+            String manufacturer = createdManufacturer.toString();
+            LocalDate manufacturedDate = localDate;
+            int seatCapacity = Integer.parseInt(txtSeatCapacity.getText());
+            Object createdUsedByApp = comboBoxCreateUsedBy.getSelectedItem();
+            String usedBy = createdUsedByApp.toString();
+            LocalDate lastUpdated = todaysDate;
+            String city = txtCity.getText();
+            LocalDate maintenanceCertExpDate = localDateCertExpire;
+            Boolean IsAvailable = chkboxAvailable.getState();
+
+            Car c = carFleetDetails.addNewCar();
+
+            c.setModelNumber(modelNumber);
+            c.setSerialNumber(serialNumber);
+            c.setManufacturer(manufacturer);
+            c.setManufacturedDate(manufacturedDate);
+            c.setSeatCapacity(seatCapacity);
+            c.setUsedByApp(usedBy);
+            c.setIsAvailable(IsAvailable);
+            c.setLastUpdated(lastUpdated);
+            c.setCity(city);
+            c.setMaintenanceCertExpDate(maintenanceCertExpDate);
+
+            JOptionPane.showMessageDialog(this, "New Car Record Added");
+
+            txtModelNum.setText("");
+            txtSerialNum.setText("");
+            comboBoxManufacturerCreate.setSelectedIndex(-1);
+            txtManufacturedDate.setText("");
+            txtSeatCapacity.setText("");
+            comboBoxCreateUsedBy.setSelectedIndex(-1);
+            txtCity.setText("");
+            txtMaintenanceCertExpDate.setText("");
+            chkboxAvailable.setState(false);  
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtSerialNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSerialNumActionPerformed
+
+    }//GEN-LAST:event_txtSerialNumActionPerformed
+
+    private void txtManufacturedDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtManufacturedDateActionPerformed
+        
+    }//GEN-LAST:event_txtManufacturedDateActionPerformed
+
+    private void txtSeatCapacityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSeatCapacityActionPerformed
+        
+    }//GEN-LAST:event_txtSeatCapacityActionPerformed
+
+    private void comboBoxCreateUsedByActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxCreateUsedByActionPerformed
+        validateMandatory();
+    }//GEN-LAST:event_comboBoxCreateUsedByActionPerformed
+
+    private void txtCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCityActionPerformed
+        
+    }//GEN-LAST:event_txtCityActionPerformed
+
+    private void txtMaintenanceCertExpDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaintenanceCertExpDateActionPerformed
+        
+    }//GEN-LAST:event_txtMaintenanceCertExpDateActionPerformed
+
+    private void txtModelNumKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtModelNumKeyPressed
+        // TODO add your handling code here:
+        validateMandatory();
+        char NumPressed = evt.getKeyChar();
+        if(Character.isLetter(NumPressed)){
+            isFormValid = false;
+            txtModelNum.setEditable(false);
+            lblModelNumErrMsg.setText("Please enter number Only!");
+            validateMandatory();
+        }
+        else
+        {
+            txtModelNum.setEditable(true);
+            isFormValid = true;
+            lblModelNumErrMsg.setText("");
+            validateMandatory();
+        }
+    }//GEN-LAST:event_txtModelNumKeyPressed
+
+    private void txtSerialNumKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSerialNumKeyPressed
+        validateMandatory();
+        char NumPressed = evt.getKeyChar();
+        if(Character.isLetter(NumPressed)){
+            isFormValid = false;
+            txtSerialNum.setEditable(false);
+            lblSerialNumErrMsg.setText("Please enter number Only!");
+            validateMandatory();
+        }
+        else
+        {
+            txtSerialNum.setEditable(true);
+            isFormValid = true;
+            lblSerialNumErrMsg.setText("");
+            validateMandatory();
+        }
+    }//GEN-LAST:event_txtSerialNumKeyPressed
+
+    private void comboBoxManufacturerCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxManufacturerCreateActionPerformed
+        // TODO add your handling code here:
+        validateMandatory();
+    }//GEN-LAST:event_comboBoxManufacturerCreateActionPerformed
+
+    private void txtSeatCapacityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSeatCapacityKeyPressed
+        validateMandatory();
+        char NumPressed = evt.getKeyChar();
+        if(Character.isLetter(NumPressed)){
+            isFormValid = false;
+            txtSeatCapacity.setEditable(false);
+            lblSeatCapacityErrMsg.setText("Please enter number Only!");
+            validateMandatory();
+        }
+        else
+        {
+            txtSeatCapacity.setEditable(true);
+            isFormValid = true;
+            lblSeatCapacityErrMsg.setText("");
+            validateMandatory();
+        }
+    }//GEN-LAST:event_txtSeatCapacityKeyPressed
+
+    private void txtManufacturedDateKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtManufacturedDateKeyPressed
+        validateMandatory();
+    }//GEN-LAST:event_txtManufacturedDateKeyPressed
+
+    private void txtCityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityKeyPressed
+        validateMandatory();
+    }//GEN-LAST:event_txtCityKeyPressed
+
+    private void txtMaintenanceCertExpDateKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMaintenanceCertExpDateKeyPressed
+        validateMandatory();
+    }//GEN-LAST:event_txtMaintenanceCertExpDateKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -248,21 +505,37 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel btnTitle;
     private java.awt.Checkbox chkboxAvailable;
     private javax.swing.JComboBox<String> comboBoxCreateUsedBy;
+    private javax.swing.JComboBox<String> comboBoxManufacturerCreate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblCarManufacturer;
     private javax.swing.JLabel lblCarModelNum;
     private javax.swing.JLabel lblCarSerialNum;
     private javax.swing.JLabel lblCity;
+    private javax.swing.JLabel lblMaintDateExpErrMsg;
     private javax.swing.JLabel lblMaintenanceCertExpDate;
+    private javax.swing.JLabel lblManuDateErrMsg;
     private javax.swing.JLabel lblManufacturedDate;
+    private javax.swing.JLabel lblModelNumErrMsg;
     private javax.swing.JLabel lblSeatCapacity;
+    private javax.swing.JLabel lblSeatCapacityErrMsg;
+    private javax.swing.JLabel lblSerialNumErrMsg;
+    private javax.swing.JLabel lblTitleSubHeading;
     private javax.swing.JLabel lblUsedBy;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtMaintenanceCertExpDate;
     private javax.swing.JTextField txtManufacturedDate;
-    private javax.swing.JTextField txtManufacturer;
     private javax.swing.JTextField txtModelNum;
     private javax.swing.JTextField txtSeatCapacity;
     private javax.swing.JTextField txtSerialNum;
     // End of variables declaration//GEN-END:variables
+
+    private void validateMandatory() {
+        if (!txtModelNum.getText().isEmpty() && !txtSerialNum.getText().isEmpty()) {
+            isValid = true;
+            btnSave.setEnabled(isValid);
+            return;
+        }
+    }
 }

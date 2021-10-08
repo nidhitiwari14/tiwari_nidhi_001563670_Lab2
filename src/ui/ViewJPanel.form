@@ -929,7 +929,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Is Available:"/>
+        <Property name="text" type="java.lang.String" value="Car Availability:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblManufacturedDate">
