@@ -16,13 +16,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="btnViewCarDetails" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Component id="btnDeleteCarDetails" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -31,53 +24,70 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="636" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblManufacturedDate" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCarSerialNum" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCarModelNum" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCarManufacturer" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblSeatCapacity" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblUsedBy" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCity" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="txtModelNum" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtSerialNum" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtManufacturer" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtManufacturedDate" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtSeatCapacity" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtUsedBy" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtCity" alignment="1" min="-2" pref="187" max="-2" attributes="0"/>
-                              </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jScrollPane1" min="-2" pref="815" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblMaintenanceCertExpDate" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblLastUpdated" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtMaintenanceCertExpDate" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtLastUpdated" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="chkboxAvailable" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="101" max="32767" attributes="0"/>
+                                      <Component id="btnViewCarDetails" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnDeleteCarDetails" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnAllAvailableCars" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnFirstAvailableCar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="comboBoxCarManufacturer" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="lblMaintenanceCertExpDate" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblCity" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblUsedBy" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblSeatCapacity" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblManufacturedDate" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblCarManufacturer" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblCarSerialNum" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblCarModelNum" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="lblLastUpdated" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtLastUpdated" linkSize="1" min="-2" pref="187" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="txtManufacturedDate" linkSize="1" alignment="0" min="-2" pref="246" max="-2" attributes="0"/>
+                                                  <Component id="txtModelNum" linkSize="1" min="-2" pref="250" max="-2" attributes="0"/>
+                                                  <Component id="txtSerialNum" linkSize="1" alignment="0" pref="246" max="32767" attributes="0"/>
+                                                  <Component id="txtManufacturer" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                              <Component id="jInternalFrame1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="txtCity" linkSize="1" min="-2" pref="187" max="-2" attributes="0"/>
+                                          <Component id="txtMaintenanceCertExpDate" linkSize="1" min="-2" pref="187" max="-2" attributes="0"/>
+                                          <Component id="txtUsedBy" linkSize="1" min="-2" pref="187" max="-2" attributes="0"/>
+                                          <Component id="txtSeatCapacity" linkSize="1" alignment="0" min="-2" pref="246" max="-2" attributes="0"/>
+                                          <Component id="chkboxAvailable" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
+                              <EmptySpace pref="376" max="32767" attributes="0"/>
+                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -89,61 +99,75 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="171" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnViewCarDetails" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnDeleteCarDetails" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblCarModelNum" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtModelNum" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblCarSerialNum" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtSerialNum" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblCarManufacturer" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtManufacturer" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblManufacturedDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtManufacturedDate" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblSeatCapacity" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtSeatCapacity" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblUsedBy" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtUsedBy" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblCity" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCity" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblMaintenanceCertExpDate" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtMaintenanceCertExpDate" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnViewCarDetails" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnDeleteCarDetails" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboBoxCarManufacturer" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnFirstAvailableCar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAllAvailableCars" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblCarModelNum" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtModelNum" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblCarSerialNum" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtSerialNum" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblCarManufacturer" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtManufacturer" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblManufacturedDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtManufacturedDate" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblSeatCapacity" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtSeatCapacity" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="14" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblUsedBy" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtUsedBy" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtCity" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jInternalFrame1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblMaintenanceCertExpDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtMaintenanceCertExpDate" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblLastUpdated" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtLastUpdated" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="chkboxAvailable" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblLastUpdated" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtLastUpdated" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="chkboxAvailable" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -221,6 +245,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="View"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewCarDetailsActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDeleteCarDetails">
       <Properties>
@@ -256,7 +283,7 @@
     </Component>
     <Component class="java.awt.Checkbox" name="chkboxAvailable">
       <Properties>
-        <Property name="label" type="java.lang.String" value="checkbox1"/>
+        <Property name="label" type="java.lang.String" value="Is Available"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCarModelNum">
@@ -306,5 +333,140 @@
         <Property name="text" type="java.lang.String" value="Last Updated:"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JButton" name="btnAllAvailableCars">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="All Available Cars"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAllAvailableCarsActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboBoxCarManufacturer">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="7">
+            <StringItem index="0" value="Tesla"/>
+            <StringItem index="1" value="BMW"/>
+            <StringItem index="2" value="Honda"/>
+            <StringItem index="3" value="GM"/>
+            <StringItem index="4" value="Toyota"/>
+            <StringItem index="5" value="Suzuki"/>
+            <StringItem index="6" value="All"/>
+          </StringArray>
+        </Property>
+        <Property name="selectedIndex" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="-1" type="code"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxCarManufacturerActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnFirstAvailableCar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="First Available Car"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFirstAvailableCarActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="483" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JInternalFrame" name="jInternalFrame1">
+      <Properties>
+        <Property name="visible" type="boolean" value="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btnCarAvailabilityStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtCountAvlCars" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCountAvlCars" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtCountUnAvlCars" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCountUnAvlCars" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnCarAvailabilityStatus" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblCountAvlCars" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblCountUnAvlCars" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtCountAvlCars" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCountUnAvlCars" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="txtCountUnAvlCars">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnCarAvailabilityStatus">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Car Availability Status"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCarAvailabilityStatusActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCountAvlCars">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Total Available Cars"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtCountAvlCars">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCountUnAvlCars">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Total Running Cars"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

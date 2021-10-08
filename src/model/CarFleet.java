@@ -46,4 +46,13 @@ public class CarFleet {
         }
         return null;
     }
+    
+    public Car searchAvailableCar() {
+        for (Car car : carFleetDetails) {
+            if (car.isIsAvailable() == true) {
+                return car;
+            }
+        }
+        return null;
+    }
 }

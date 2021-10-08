@@ -41,7 +41,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblManufacturedDate = new javax.swing.JLabel();
         lblSeatCapacity = new javax.swing.JLabel();
         lblUsedBy = new javax.swing.JLabel();
-        lblLastUpdated = new javax.swing.JLabel();
         lblCity = new javax.swing.JLabel();
         lblMaintenanceCertExpDate = new javax.swing.JLabel();
         txtModelNum = new javax.swing.JTextField();
@@ -52,7 +51,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtUsedBy = new javax.swing.JTextField();
         txtCity = new javax.swing.JTextField();
         txtMaintenanceCertExpDate = new javax.swing.JTextField();
-        txtLastUpdated = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         chkboxAvailable = new java.awt.Checkbox();
@@ -71,8 +69,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblSeatCapacity.setText("Seat Capacity:");
 
         lblUsedBy.setText("Used By App:");
-
-        lblLastUpdated.setText("Last Updated:");
 
         lblCity.setText("City:");
 
@@ -100,47 +96,50 @@ public class CreateJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(226, 226, 226)
                         .addComponent(btnTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(107, 107, 107)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblManufacturedDate)
-                                .addComponent(lblCarSerialNum)
-                                .addComponent(lblCarModelNum)
-                                .addComponent(lblCarManufacturer)
-                                .addComponent(lblSeatCapacity)
-                                .addComponent(lblUsedBy)
-                                .addComponent(lblCity))
-                            .addGap(56, 56, 56)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtModelNum)
-                                .addComponent(txtSerialNum)
-                                .addComponent(txtManufacturer)
-                                .addComponent(txtManufacturedDate)
-                                .addComponent(txtSeatCapacity)
-                                .addComponent(txtUsedBy)
-                                .addComponent(txtCity, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblManufacturedDate)
+                            .addComponent(lblCarSerialNum)
+                            .addComponent(lblCarModelNum)
+                            .addComponent(lblCarManufacturer)
+                            .addComponent(lblSeatCapacity)
+                            .addComponent(lblUsedBy)
+                            .addComponent(lblCity))
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtModelNum)
+                            .addComponent(txtSerialNum)
+                            .addComponent(txtManufacturer)
+                            .addComponent(txtManufacturedDate)
+                            .addComponent(txtSeatCapacity)
+                            .addComponent(txtUsedBy)
+                            .addComponent(txtCity, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(158, 158, 158)
+                                .addComponent(jLabel1)
+                                .addGap(4, 4, 4))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblMaintenanceCertExpDate)
-                                .addComponent(lblLastUpdated)
-                                .addComponent(jLabel1))
-                            .addGap(52, 52, 52)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtMaintenanceCertExpDate, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtLastUpdated, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(chkboxAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(0, 101, Short.MAX_VALUE))))))
-                .addContainerGap(276, Short.MAX_VALUE))
+                                .addGap(8, 8, 8)))
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtMaintenanceCertExpDate)
+                                .addComponent(chkboxAvailable, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCity, txtManufacturedDate, txtManufacturer, txtModelNum, txtSeatCapacity, txtSerialNum, txtUsedBy});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -174,20 +173,17 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCity)
                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMaintenanceCertExpDate)
                     .addComponent(txtMaintenanceCertExpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblLastUpdated)
-                    .addComponent(txtLastUpdated, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(chkboxAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(btnSave))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(btnSave)
+                .addGap(35, 35, 35))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -197,15 +193,16 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        java.util.Date date=new java.util.Date(); 
         int modelNumber = Integer.parseInt(txtModelNum.getText());
         int serialNumber = Integer.parseInt(txtSerialNum.getText());  
         String manufacturer = txtManufacturer.getText();
         String manufacturedDate = txtManufacturedDate.getText();
         int seatCapacity = Integer.parseInt(txtSeatCapacity.getText());
         String usedBy = txtUsedBy.getText();
-        String lastUpdated = txtLastUpdated.getText();
+        String lastUpdated = String.valueOf(date);
         String city = txtCity.getText();
-        String MaintenanceCertExpDate = txtMaintenanceCertExpDate.getText();
+        String maintenanceCertExpDate = txtMaintenanceCertExpDate.getText();
         Boolean IsAvailable = chkboxAvailable.getState();
         
         Car c = carFleetDetails.addNewCar();
@@ -217,6 +214,9 @@ public class CreateJPanel extends javax.swing.JPanel {
         c.setSeatCapacity(seatCapacity);
         c.setUsedByApp(usedBy);
         c.setIsAvailable(IsAvailable);
+        c.setLastUpdated(lastUpdated);
+        c.setCity(city);
+        c.setMaintenanceCertExpDate(maintenanceCertExpDate);
         
         JOptionPane.showMessageDialog(this, "New Car Record Added");
         
@@ -226,7 +226,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtManufacturedDate.setText("");
         txtSeatCapacity.setText("");
         txtUsedBy.setText("");
-        txtLastUpdated.setText("");
         txtCity.setText("");
         txtMaintenanceCertExpDate.setText("");
         chkboxAvailable.setState(false);
@@ -242,13 +241,11 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblCarModelNum;
     private javax.swing.JLabel lblCarSerialNum;
     private javax.swing.JLabel lblCity;
-    private javax.swing.JLabel lblLastUpdated;
     private javax.swing.JLabel lblMaintenanceCertExpDate;
     private javax.swing.JLabel lblManufacturedDate;
     private javax.swing.JLabel lblSeatCapacity;
     private javax.swing.JLabel lblUsedBy;
     private javax.swing.JTextField txtCity;
-    private javax.swing.JTextField txtLastUpdated;
     private javax.swing.JTextField txtMaintenanceCertExpDate;
     private javax.swing.JTextField txtManufacturedDate;
     private javax.swing.JTextField txtManufacturer;
