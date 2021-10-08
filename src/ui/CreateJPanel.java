@@ -51,12 +51,12 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtManufacturer = new javax.swing.JTextField();
         txtManufacturedDate = new javax.swing.JTextField();
         txtSeatCapacity = new javax.swing.JTextField();
-        txtUsedBy = new javax.swing.JTextField();
         txtCity = new javax.swing.JTextField();
         txtMaintenanceCertExpDate = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         chkboxAvailable = new java.awt.Checkbox();
+        comboBoxCreateUsedBy = new javax.swing.JComboBox<>();
 
         btnTitle.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnTitle.setText("Create Car Details");
@@ -94,6 +94,9 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         chkboxAvailable.setLabel("checkbox1");
 
+        comboBoxCreateUsedBy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Uber", "Lyft", "Ola" }));
+        comboBoxCreateUsedBy.setSelectedIndex(-1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,13 +118,13 @@ public class CreateJPanel extends javax.swing.JPanel {
                             .addComponent(lblCity))
                         .addGap(56, 56, 56)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtModelNum)
-                            .addComponent(txtSerialNum)
-                            .addComponent(txtManufacturer)
-                            .addComponent(txtManufacturedDate)
-                            .addComponent(txtSeatCapacity)
-                            .addComponent(txtUsedBy)
-                            .addComponent(txtCity, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)))
+                            .addComponent(txtModelNum, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSerialNum, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtManufacturer, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtManufacturedDate, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSeatCapacity, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                            .addComponent(comboBoxCreateUsedBy, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -138,10 +141,10 @@ public class CreateJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtMaintenanceCertExpDate)
                                 .addComponent(chkboxAvailable, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCity, txtManufacturedDate, txtManufacturer, txtModelNum, txtSeatCapacity, txtSerialNum, txtUsedBy});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCity, txtManufacturedDate, txtManufacturer, txtModelNum, txtSeatCapacity, txtSerialNum});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +174,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsedBy)
-                    .addComponent(txtUsedBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxCreateUsedBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCity)
@@ -186,7 +189,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(chkboxAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addComponent(btnSave)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -200,12 +203,14 @@ public class CreateJPanel extends javax.swing.JPanel {
         LocalDate localDate = LocalDate.parse(txtManufacturedDate.getText(), formatter);
         LocalDate localDateCertExpire = LocalDate.parse(txtMaintenanceCertExpDate.getText(), formatter);
         LocalDate todaysDate = LocalDate.now();
+        System.out.println("todaysDate" + todaysDate);
         int modelNumber = Integer.parseInt(txtModelNum.getText());
         int serialNumber = Integer.parseInt(txtSerialNum.getText());  
         String manufacturer = txtManufacturer.getText();
         LocalDate manufacturedDate = localDate;
         int seatCapacity = Integer.parseInt(txtSeatCapacity.getText());
-        String usedBy = txtUsedBy.getText();
+        Object createdUsedByApp = comboBoxCreateUsedBy.getSelectedItem();
+        String usedBy = createdUsedByApp.toString();
         LocalDate lastUpdated = todaysDate;
         String city = txtCity.getText();
         LocalDate maintenanceCertExpDate = localDateCertExpire;
@@ -231,7 +236,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtManufacturer.setText("");
         txtManufacturedDate.setText("");
         txtSeatCapacity.setText("");
-        txtUsedBy.setText("");
+        comboBoxCreateUsedBy.setSelectedIndex(-1);
         txtCity.setText("");
         txtMaintenanceCertExpDate.setText("");
         chkboxAvailable.setState(false);
@@ -242,6 +247,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSave;
     private javax.swing.JLabel btnTitle;
     private java.awt.Checkbox chkboxAvailable;
+    private javax.swing.JComboBox<String> comboBoxCreateUsedBy;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCarManufacturer;
     private javax.swing.JLabel lblCarModelNum;
@@ -258,6 +264,5 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtModelNum;
     private javax.swing.JTextField txtSeatCapacity;
     private javax.swing.JTextField txtSerialNum;
-    private javax.swing.JTextField txtUsedBy;
     // End of variables declaration//GEN-END:variables
 }

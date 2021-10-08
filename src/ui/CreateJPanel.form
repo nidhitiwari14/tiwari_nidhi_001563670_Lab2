@@ -35,13 +35,13 @@
                       </Group>
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="txtModelNum" linkSize="1" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txtSerialNum" linkSize="1" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txtManufacturer" linkSize="1" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txtManufacturedDate" linkSize="1" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txtSeatCapacity" linkSize="1" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txtUsedBy" linkSize="1" alignment="1" max="32767" attributes="0"/>
-                          <Component id="txtCity" linkSize="1" alignment="1" pref="187" max="32767" attributes="0"/>
+                          <Component id="txtModelNum" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtSerialNum" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtManufacturer" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtManufacturedDate" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtSeatCapacity" linkSize="1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtCity" linkSize="1" alignment="0" pref="187" max="32767" attributes="0"/>
+                          <Component id="comboBoxCreateUsedBy" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -67,7 +67,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="306" max="32767" attributes="0"/>
+              <EmptySpace pref="306" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -104,7 +104,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblUsedBy" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtUsedBy" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboBoxCreateUsedBy" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -123,7 +123,7 @@
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="btnSave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="53" max="32767" attributes="0"/>
+              <EmptySpace pref="52" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -190,8 +190,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtSeatCapacity">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtUsedBy">
-    </Component>
     <Component class="javax.swing.JTextField" name="txtCity">
     </Component>
     <Component class="javax.swing.JTextField" name="txtMaintenanceCertExpDate">
@@ -213,6 +211,23 @@
       <Properties>
         <Property name="label" type="java.lang.String" value="checkbox1"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboBoxCreateUsedBy">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="Uber"/>
+            <StringItem index="1" value="Lyft"/>
+            <StringItem index="2" value="Ola"/>
+          </StringArray>
+        </Property>
+        <Property name="selectedIndex" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="-1" type="code"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
