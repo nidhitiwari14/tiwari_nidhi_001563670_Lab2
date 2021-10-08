@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author nidhitiwari
@@ -15,7 +17,7 @@ public class Car {
     private int modelNumber;
     private boolean isAvailable;
     private String manufacturer;
-    private String manufacturedDate;
+    private LocalDate manufacturedDate;
     private int seatCapacity;
     private String usedByApp;
     private String lastUpdated;
@@ -66,11 +68,11 @@ public class Car {
         this.manufacturer = manufacturer;
     }
 
-    public String getManufacturedDate() {
+    public LocalDate getManufacturedDate() {
         return manufacturedDate;
     }
 
-    public void setManufacturedDate(String manufacturedDate) {
+    public void setManufacturedDate(LocalDate manufacturedDate) {
         this.manufacturedDate = manufacturedDate;
     }
 

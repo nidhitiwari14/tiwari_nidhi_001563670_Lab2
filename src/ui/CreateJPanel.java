@@ -8,6 +8,9 @@ package ui;
 import javax.swing.JOptionPane;
 import model.Car;
 import model.CarFleet;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  *
@@ -181,9 +184,9 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(chkboxAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addComponent(btnSave)
-                .addGap(35, 35, 35))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -193,11 +196,13 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDate localDate = LocalDate.parse(txtManufacturedDate.getText(), formatter);
         java.util.Date date=new java.util.Date(); 
         int modelNumber = Integer.parseInt(txtModelNum.getText());
         int serialNumber = Integer.parseInt(txtSerialNum.getText());  
         String manufacturer = txtManufacturer.getText();
-        String manufacturedDate = txtManufacturedDate.getText();
+        LocalDate manufacturedDate = localDate;
         int seatCapacity = Integer.parseInt(txtSeatCapacity.getText());
         String usedBy = txtUsedBy.getText();
         String lastUpdated = String.valueOf(date);
