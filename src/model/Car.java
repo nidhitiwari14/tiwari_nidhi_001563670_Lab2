@@ -20,9 +20,9 @@ public class Car {
     private LocalDate manufacturedDate;
     private int seatCapacity;
     private String usedByApp;
-    private String lastUpdated;
+    private LocalDate lastUpdated;
     private String city;
-    private String maintenanceCertExpDate;
+    private LocalDate maintenanceCertExpDate;
     
     private static int count = 0;
     
@@ -92,11 +92,11 @@ public class Car {
         this.usedByApp = usedByApp;
     }
 
-    public String getLastUpdated() {
+    public LocalDate getLastUpdated() {
         return lastUpdated;
     }
 
-    public void setLastUpdated(String lastUpdated) {
+    public void setLastUpdated(LocalDate lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 
@@ -108,11 +108,11 @@ public class Car {
         this.city = city;
     }
 
-    public String getMaintenanceCertExpDate() {
+    public LocalDate getMaintenanceCertExpDate() {
         return maintenanceCertExpDate;
     }
 
-    public void setMaintenanceCertExpDate(String maintenanceCertExpDate) {
+    public void setMaintenanceCertExpDate(LocalDate maintenanceCertExpDate) {
         this.maintenanceCertExpDate = maintenanceCertExpDate;
     }
 

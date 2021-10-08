@@ -198,16 +198,17 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         LocalDate localDate = LocalDate.parse(txtManufacturedDate.getText(), formatter);
-        java.util.Date date=new java.util.Date(); 
+        LocalDate localDateCertExpire = LocalDate.parse(txtMaintenanceCertExpDate.getText(), formatter);
+        LocalDate todaysDate = LocalDate.now();
         int modelNumber = Integer.parseInt(txtModelNum.getText());
         int serialNumber = Integer.parseInt(txtSerialNum.getText());  
         String manufacturer = txtManufacturer.getText();
         LocalDate manufacturedDate = localDate;
         int seatCapacity = Integer.parseInt(txtSeatCapacity.getText());
         String usedBy = txtUsedBy.getText();
-        String lastUpdated = String.valueOf(date);
+        LocalDate lastUpdated = todaysDate;
         String city = txtCity.getText();
-        String maintenanceCertExpDate = txtMaintenanceCertExpDate.getText();
+        LocalDate maintenanceCertExpDate = localDateCertExpire;
         Boolean IsAvailable = chkboxAvailable.getState();
         
         Car c = carFleetDetails.addNewCar();
