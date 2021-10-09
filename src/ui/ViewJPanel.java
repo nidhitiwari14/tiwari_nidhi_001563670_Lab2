@@ -6,6 +6,7 @@
 package ui;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -30,6 +31,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         this.carFleetDetails = carFleetDetails;
         
         populateTable();
+        btnUpdateView.setEnabled(false);
+        txtLastUpdated.setEditable(false);
     }
 
     /**
@@ -97,9 +100,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         lblManufacturedDate = new javax.swing.JLabel();
         txtSerialNum = new javax.swing.JTextField();
         chkboxAvailable = new java.awt.Checkbox();
-        txtUsedBy = new javax.swing.JTextField();
         lblCarModelNum = new javax.swing.JLabel();
-        txtManufacturer = new javax.swing.JTextField();
         lblSeatCapacity = new javax.swing.JLabel();
         lblCarSerialNum = new javax.swing.JLabel();
         txtCity = new javax.swing.JTextField();
@@ -108,6 +109,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         lblManufacturerFilter = new javax.swing.JLabel();
         comboBoxCarManufacturer = new javax.swing.JComboBox<>();
         btnUpdateView = new javax.swing.JButton();
+        comboBoxManufacturer = new javax.swing.JComboBox<>();
+        comboBoxViewUsedBy = new javax.swing.JComboBox<>();
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("View Car Details");
@@ -169,14 +172,14 @@ public class ViewJPanel extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 631, Short.MAX_VALUE)
+            .addGap(0, 628, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1031, Short.MAX_VALUE)
+            .addGap(0, 929, Short.MAX_VALUE)
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -533,6 +536,27 @@ public class ViewJPanel extends javax.swing.JPanel {
         btnUpdateView.setBackground(new java.awt.Color(51, 51, 51));
         btnUpdateView.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateView.setText("Update Car");
+        btnUpdateView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateViewActionPerformed(evt);
+            }
+        });
+
+        comboBoxManufacturer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tesla", "Toyota", "GM", "Honda", "BMW" }));
+        comboBoxManufacturer.setSelectedIndex(-1);
+        comboBoxManufacturer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxManufacturerActionPerformed(evt);
+            }
+        });
+
+        comboBoxViewUsedBy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Uber", "Lyft", "Ola" }));
+        comboBoxViewUsedBy.setSelectedIndex(-1);
+        comboBoxViewUsedBy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxViewUsedByActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -608,10 +632,6 @@ public class ViewJPanel extends javax.swing.JPanel {
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(txtModelNum, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(txtSerialNum, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
-                                                    .addComponent(txtManufacturer)
-                                                    .addComponent(txtManufacturedDate, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txtSeatCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txtUsedBy, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(txtMaintenanceCertExpDate, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGroup(layout.createSequentialGroup()
@@ -619,7 +639,13 @@ public class ViewJPanel extends javax.swing.JPanel {
                                                             .addComponent(txtLastUpdated, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addComponent(chkboxAvailable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGap(49, 49, 49)
-                                                        .addComponent(btnUpdateView))))))))
+                                                        .addComponent(btnUpdateView))
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(comboBoxManufacturer, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(txtManufacturedDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addComponent(comboBoxViewUsedBy, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(txtSeatCapacity, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))))))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(341, 341, 341)
                                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -632,7 +658,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCity, txtLastUpdated, txtMaintenanceCertExpDate, txtManufacturedDate, txtManufacturer, txtModelNum, txtSeatCapacity, txtSerialNum, txtUsedBy});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCity, txtLastUpdated, txtMaintenanceCertExpDate, txtManufacturedDate, txtModelNum, txtSeatCapacity, txtSerialNum});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -674,10 +700,10 @@ public class ViewJPanel extends javax.swing.JPanel {
                                             .addComponent(txtModelNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(34, 34, 34)
+                                                .addGap(35, 35, 35)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                     .addComponent(lblCarManufacturer)
-                                                    .addComponent(txtManufacturer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addComponent(comboBoxManufacturer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(txtSerialNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(lblCarSerialNum)))
@@ -691,8 +717,8 @@ public class ViewJPanel extends javax.swing.JPanel {
                                             .addComponent(lblSeatCapacity))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(txtUsedBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblUsedBy))
+                                            .addComponent(lblUsedBy)
+                                            .addComponent(comboBoxViewUsedBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(lblCity)
@@ -732,7 +758,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                         .addContainerGap())))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtCity, txtLastUpdated, txtMaintenanceCertExpDate, txtManufacturedDate, txtManufacturer, txtModelNum, txtSeatCapacity, txtSerialNum, txtUsedBy});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtCity, txtLastUpdated, txtMaintenanceCertExpDate, txtManufacturedDate, txtModelNum, txtSeatCapacity, txtSerialNum});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -768,16 +794,19 @@ public class ViewJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblViewCarDetails.getModel();
         Car selectedCar = (Car) model.getValueAt(selectedRowIndex, 0);
         
+        txtSerialNum.setEditable(false);
+        txtLastUpdated.setEditable(false);
         txtModelNum.setText(String.valueOf(selectedCar.getModelNumber()));
-        txtSerialNum.setText(String.valueOf(selectedCar.getSerialNumber()));
-        txtManufacturer.setText(selectedCar.getManufacturer());
+        txtSerialNum.setText(String.valueOf(selectedCar.getSerialNumber())); 
+        comboBoxViewUsedBy.setSelectedItem(selectedCar.getUsedByApp());
+        comboBoxManufacturer.setSelectedItem(selectedCar.getManufacturer());
         txtManufacturedDate.setText(String.valueOf(selectedCar.getManufacturedDate()));
         txtSeatCapacity.setText(String.valueOf(selectedCar.getSeatCapacity()));
-        txtUsedBy.setText(selectedCar.getUsedByApp());
         txtCity.setText(selectedCar.getCity());
         txtMaintenanceCertExpDate.setText(String.valueOf(selectedCar.getMaintenanceCertExpDate()));
         txtLastUpdated.setText(String.valueOf(selectedCar.getLastUpdated()));
         chkboxAvailable.setState(selectedCar.isIsAvailable());
+        btnUpdateView.setEnabled(true);
     }//GEN-LAST:event_btnViewCarDetailsActionPerformed
 
     private void btnAllAvailableCarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllAvailableCarsActionPerformed
@@ -834,7 +863,11 @@ public class ViewJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_comboBoxMaximumCapacityActionPerformed
 
     private void btnSerialNumberFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSerialNumberFilterActionPerformed
-        populateTableSerialNumberFilter();
+        if (!txtSerialNumberFilter.getText().isEmpty()) {
+            populateTableSerialNumberFilter();
+        } else {
+            populateTable();
+        }
     }//GEN-LAST:event_btnSerialNumberFilterActionPerformed
 
     private void btnModelNumberFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModelNumberFilterActionPerformed
@@ -857,6 +890,43 @@ public class ViewJPanel extends javax.swing.JPanel {
         populateTableExpiredCertFilter();
     }//GEN-LAST:event_btnExpiredMaintCertActionPerformed
 
+    private void btnUpdateViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateViewActionPerformed
+        int serialNum = Integer.parseInt(txtSerialNum.getText());
+        
+        for(Car c: carFleetDetails.getCarFleetDetails()) {
+            if(!txtSerialNum.getText().isEmpty() && c.getSerialNumber() == serialNum) {
+                LocalDate todaysDate = LocalDate.now();
+                boolean available = chkboxAvailable.getState();
+                DateTimeFormatter dformatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                LocalDate localDate = LocalDate.parse(txtManufacturedDate.getText(), dformatter);
+                LocalDate manufacturedDate = localDate;
+                LocalDate localDateCerExp = LocalDate.parse(txtMaintenanceCertExpDate.getText(), dformatter);
+                Object viewUsedByApp = comboBoxViewUsedBy.getSelectedItem();
+                String usedBy = viewUsedByApp.toString();
+                Object viewManufacturedBy = comboBoxManufacturer.getSelectedItem();
+                String manufacturedBy = viewManufacturedBy.toString();
+                c.setModelNumber(Integer.parseInt(txtModelNum.getText()));
+                c.setManufacturedDate(manufacturedDate);
+                c.setSeatCapacity(Integer.parseInt(txtSeatCapacity.getText()));
+                c.setCity(txtCity.getText());
+                c.setUsedByApp(usedBy);
+                c.setManufacturer(manufacturedBy);
+                c.setMaintenanceCertExpDate(localDateCerExp);
+                c.setLastUpdated(todaysDate);
+                c.setIsAvailable(available);
+            }
+        }
+        populateTable();
+    }//GEN-LAST:event_btnUpdateViewActionPerformed
+
+    private void comboBoxManufacturerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxManufacturerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxManufacturerActionPerformed
+
+    private void comboBoxViewUsedByActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxViewUsedByActionPerformed
+        
+    }//GEN-LAST:event_comboBoxViewUsedByActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAllAvailableCars;
@@ -872,9 +942,11 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnViewCarDetails;
     private java.awt.Checkbox chkboxAvailable;
     private javax.swing.JComboBox<String> comboBoxCarManufacturer;
+    private javax.swing.JComboBox<String> comboBoxManufacturer;
     private javax.swing.JComboBox<String> comboBoxMaximumCapacity;
     private javax.swing.JComboBox<String> comboBoxMinCapacity;
     private javax.swing.JComboBox<String> comboBoxUsedByApp;
+    private javax.swing.JComboBox<String> comboBoxViewUsedBy;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JInternalFrame jInternalFrame3;
@@ -919,13 +991,11 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtMaintenanceCertExpDate;
     private javax.swing.JTextField txtManufacturedDate;
     private javax.swing.JTextField txtManufacturedDateFilter;
-    private javax.swing.JTextField txtManufacturer;
     private javax.swing.JTextField txtModelNum;
     private javax.swing.JTextField txtModelNumberFilter;
     private javax.swing.JTextField txtSeatCapacity;
     private javax.swing.JTextField txtSerialNum;
     private javax.swing.JTextField txtSerialNumberFilter;
-    private javax.swing.JTextField txtUsedBy;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
@@ -1110,7 +1180,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         for(Car c: carFleetDetails.getCarFleetDetails()) {
             int seriNum = c.getSerialNumber();
             
-            if(seriNum == serialNumber) {
+            if(txtSerialNumberFilter.getText() != "" && seriNum == serialNumber) {
                 Object [] row = new Object[6];
                 row[0] = c;
                 row[1] = c.getSerialNumber();
@@ -1154,7 +1224,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         for(Car c: carFleetDetails.getCarFleetDetails()) {
             String city = c.getCity();
             
-            if(city == typeCity) {
+            if(txtCityFilter.getText().equals(city)) {
                 Object [] row = new Object[6];
                 row[0] = c;
                 row[1] = c.getSerialNumber();
