@@ -111,6 +111,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         btnUpdateView = new javax.swing.JButton();
         comboBoxManufacturer = new javax.swing.JComboBox<>();
         comboBoxViewUsedBy = new javax.swing.JComboBox<>();
+        btnResetFilters = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("View Car Details");
@@ -558,6 +559,13 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnResetFilters.setText("Reset Filters");
+        btnResetFilters.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetFiltersActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -614,7 +622,9 @@ public class ViewJPanel extends javax.swing.JPanel {
                                                                 .addComponent(jLayeredPane2))
                                                             .addComponent(comboBoxCarManufacturer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGap(35, 35, 35)
-                                                        .addComponent(comboBoxUsedByApp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                        .addComponent(comboBoxUsedByApp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(btnResetFilters))))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                     .addComponent(lblMaintenanceCertExpDate)
@@ -686,7 +696,9 @@ public class ViewJPanel extends javax.swing.JPanel {
                                     .addComponent(lblUsedByApp))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(comboBoxUsedByApp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(comboBoxUsedByApp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnResetFilters))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(btnUpdateView, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(8, 8, 8))
@@ -787,7 +799,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         int selectedRowIndex = tblViewCarDetails.getSelectedRow();
         
         if(selectedRowIndex < 0) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete");
+            JOptionPane.showMessageDialog(this, "Please select a row to view");
             return;
         }
         
@@ -927,6 +939,14 @@ public class ViewJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_comboBoxViewUsedByActionPerformed
 
+    private void btnResetFiltersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetFiltersActionPerformed
+        txtCityFilter.setText("");
+        txtModelNumberFilter.setText("");
+        txtManufacturedDateFilter.setText("");
+        txtSerialNumberFilter.setText("");
+        populateTable();
+    }//GEN-LAST:event_btnResetFiltersActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAllAvailableCars;
@@ -937,6 +957,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnFirstAvailableCar;
     private javax.swing.JButton btnManufacturedDateFilter;
     private javax.swing.JButton btnModelNumberFilter;
+    private javax.swing.JButton btnResetFilters;
     private javax.swing.JButton btnSerialNumberFilter;
     private javax.swing.JButton btnUpdateView;
     private javax.swing.JButton btnViewCarDetails;
@@ -1033,7 +1054,6 @@ public class ViewJPanel extends javax.swing.JPanel {
         }
         
         if (!allUpdates.isEmpty()) {
-            System.out.println("inside");
                    LocalDate maxDate = allUpdates.get(0); 
 
         for (int i = 1; i < allUpdates.size()-1; i++) { 

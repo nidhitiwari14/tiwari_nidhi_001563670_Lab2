@@ -69,6 +69,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblMaintDateExpErrMsg = new javax.swing.JLabel();
         comboBoxManufacturerCreate = new javax.swing.JComboBox<>();
         lblSeatCapacityErrMsg = new javax.swing.JLabel();
+        lblSerialNumNotUnique = new javax.swing.JLabel();
 
         btnTitle.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnTitle.setText("Create Car Details");
@@ -200,10 +201,16 @@ public class CreateJPanel extends javax.swing.JPanel {
 
         lblSeatCapacityErrMsg.setText("           ");
 
+        lblSerialNumNotUnique.setText("           ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(280, 280, 280)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -234,6 +241,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addContainerGap(170, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSerialNumNotUnique)
                             .addComponent(jLabel3)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtSerialNum)
@@ -257,10 +265,6 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addComponent(lblManuDateErrMsg))
                             .addComponent(comboBoxManufacturerCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(280, 280, 280)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCity, txtManufacturedDate, txtModelNum, txtSeatCapacity, txtSerialNum});
@@ -283,11 +287,13 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblCarSerialNum)
                     .addComponent(txtSerialNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSerialNumErrMsg))
-                .addGap(18, 18, 18)
+                .addGap(3, 3, 3)
+                .addComponent(lblSerialNumNotUnique)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCarManufacturer)
                     .addComponent(comboBoxManufacturerCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblManufacturedDate)
                     .addComponent(txtManufacturedDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -320,7 +326,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSave)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -358,6 +364,18 @@ public class CreateJPanel extends javax.swing.JPanel {
                 isFormValid = false;
             } 
         }
+        int newSerialNum = Integer.parseInt(txtSerialNum.getText());
+            for(Car c: carFleetDetails.getCarFleetDetails()) {
+                if(newSerialNum == c.getSerialNumber()) {
+                    System.out.println("" + txtSerialNum.getText() + c.getSerialNumber());
+                    lblSerialNumNotUnique.setText("This Serial Number already exists");
+                    isFormValid = false;
+                    isValid = false;
+                } else {
+                   isFormValid = true;
+                   isValid = true; 
+                }
+            }
         if (isFormValid) {
           DateTimeFormatter dformatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
             LocalDate localDate = LocalDate.parse(txtManufacturedDate.getText(), dformatter);
@@ -521,6 +539,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblSeatCapacity;
     private javax.swing.JLabel lblSeatCapacityErrMsg;
     private javax.swing.JLabel lblSerialNumErrMsg;
+    private javax.swing.JLabel lblSerialNumNotUnique;
     private javax.swing.JLabel lblTitleSubHeading;
     private javax.swing.JLabel lblUsedBy;
     private javax.swing.JTextField txtCity;
