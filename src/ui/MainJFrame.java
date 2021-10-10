@@ -5,6 +5,8 @@
  */
 package ui;
 import java.awt.CardLayout;
+import java.time.LocalDate;
+import model.Car;
 import model.CarFleet;
 
 /**
@@ -23,6 +25,7 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         
         carFleetDetails = new CarFleet();
+        setCarFleetDetails();
     }
 
     /**
@@ -41,7 +44,6 @@ public class MainJFrame extends javax.swing.JFrame {
         workArea = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         btnCreate.setText("Create Car");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -61,15 +63,12 @@ public class MainJFrame extends javax.swing.JFrame {
         controlPanel.setLayout(controlPanelLayout);
         controlPanelLayout.setHorizontalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+            .addGroup(controlPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(controlPanelLayout.createSequentialGroup()
-                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
-                        .addComponent(btnView, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))))
+                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCreate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnView, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,6 +154,88 @@ public class MainJFrame extends javax.swing.JFrame {
                 new MainJFrame().setVisible(true);
             }
         });
+    }
+    
+    public void setCarFleetDetails(){
+     
+        Car c = carFleetDetails.addNewCar();
+       
+        c.setSerialNumber(92134);
+        c.setModelNumber(20987);
+        c.setManufacturer("Tesla");
+        c.setManufacturedDate(LocalDate.parse("2018-12-02"));
+        c.setSeatCapacity(4);
+        c.setUsedByApp("Uber");
+        c.setIsAvailable(true);
+        c.setLastUpdated(LocalDate.parse("2020-11-12"));
+        c.setMaintenanceCertExpDate(LocalDate.parse("2025-09-11"));
+        c.setCity("Boston");
+       
+             
+        Car c1 = carFleetDetails.addNewCar();
+       
+        c1.setSerialNumber(92135);
+        c1.setModelNumber(20890);
+        c1.setManufacturer("BMW");
+        c1.setManufacturedDate(LocalDate.parse("2015-02-12"));
+        c1.setSeatCapacity(5);
+        c1.setUsedByApp("Lyft");
+        c1.setIsAvailable(true);
+        c1.setLastUpdated(LocalDate.parse("2021-12-02"));
+        c1.setMaintenanceCertExpDate(LocalDate.parse("2020-09-11"));
+        c1.setCity("NewYork");
+             
+        Car c2 = carFleetDetails.addNewCar();
+       
+        c2.setSerialNumber(92136);
+        c2.setModelNumber(20990);
+        c2.setManufacturer("Suzuki");
+        c2.setManufacturedDate( LocalDate.parse("2000-12-02"));
+        c2.setSeatCapacity(4);
+        c2.setUsedByApp("Ola");
+        c2.setIsAvailable(true);
+        c2.setLastUpdated(LocalDate.parse("2021-08-02"));
+        c2.setMaintenanceCertExpDate(LocalDate.parse("2020-09-05"));
+        c2.setCity("Cali");
+       
+        Car c3 = carFleetDetails.addNewCar();
+       
+        c3.setSerialNumber(92198);
+        c3.setModelNumber(20156);
+        c3.setManufacturer("Toyota");
+        c3.setManufacturedDate( LocalDate.parse("2000-02-12"));
+        c3.setSeatCapacity(5);
+        c3.setUsedByApp("Uber");
+        c3.setIsAvailable(false);
+        c3.setLastUpdated(LocalDate.parse("2021-02-11"));
+        c3.setCity("Texas");
+       
+        Car c4 = carFleetDetails.addNewCar();
+       
+        c4.setSerialNumber(92145);
+        c4.setModelNumber(20789);
+        c4.setManufacturer("Tesla");
+        c4.setManufacturedDate(LocalDate.parse("2018-12-02"));
+        c4.setSeatCapacity(7);
+        c4.setUsedByApp("Uber");
+        c4.setIsAvailable(true);
+        c4.setLastUpdated(LocalDate.parse("2020-11-12"));
+        c4.setMaintenanceCertExpDate(LocalDate.parse("2025-09-11"));
+        c4.setCity("Texas");
+     
+        Car c5 = carFleetDetails.addNewCar();
+       
+        c5.setSerialNumber(93456);
+        c5.setModelNumber(20789);
+        c5.setManufacturer("Honda");
+        c5.setManufacturedDate( LocalDate.parse("2018-09-02"));
+        c5.setSeatCapacity(8);
+        c5.setUsedByApp("Uber");
+        c5.setIsAvailable(false);
+        c5.setLastUpdated(LocalDate.parse("2020-05-10"));
+        c5.setMaintenanceCertExpDate(LocalDate.parse("2026-03-07"));
+        c5.setCity("Boston");      
+           
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

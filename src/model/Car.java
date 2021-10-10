@@ -13,8 +13,8 @@ import java.time.LocalDate;
  */
 public class Car {
     
-    private int serialNumber;
-    private int modelNumber;
+    private long serialNumber;
+    private long modelNumber;
     private boolean isAvailable;
     private String manufacturer;
     private LocalDate manufacturedDate;
@@ -31,15 +31,15 @@ public class Car {
         modelNumber = count;
     }
 
-    public int getSerialNumber() {
+    public long getSerialNumber() {
         return serialNumber;
     }
 
-    public void setSerialNumber(int serialNumber) {
+    public void setSerialNumber(long serialNumber) {
         this.serialNumber = serialNumber;
     }
 
-    public int getModelNumber() {
+    public long getModelNumber() {
         return modelNumber;
     }
     
@@ -48,7 +48,7 @@ public class Car {
         return String.valueOf(modelNumber);
     }
 
-    public void setModelNumber(int modelNumber) {
+    public void setModelNumber(long modelNumber) {
         this.modelNumber = modelNumber;
     }
 
