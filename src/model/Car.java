@@ -6,6 +6,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -20,7 +21,7 @@ public class Car {
     private LocalDate manufacturedDate;
     private int seatCapacity;
     private String usedByApp;
-    private LocalDate lastUpdated;
+    private LocalDateTime lastUpdated;
     private String city;
     private LocalDate maintenanceCertExpDate;
     
@@ -92,11 +93,11 @@ public class Car {
         this.usedByApp = usedByApp;
     }
 
-    public LocalDate getLastUpdated() {
+    public LocalDateTime getLastUpdated() {
         return lastUpdated;
     }
 
-    public void setLastUpdated(LocalDate lastUpdated) {
+    public void setLastUpdated(LocalDateTime lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 

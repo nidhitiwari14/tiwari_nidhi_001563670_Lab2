@@ -6,6 +6,7 @@
 package ui;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -771,7 +772,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                                                 .addGap(18, 18, 18)
                                                 .addComponent(lblLastUpdatedValue)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(txtLastUpdatedValue, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtLastUpdatedValue, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(6, 6, 6)
@@ -1065,7 +1066,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         for(Car c: carFleetDetails.getCarFleetDetails()) {
             if(!txtSerialNum.getText().isEmpty() && c.getSerialNumber() == serialNum) {
-                LocalDate todaysDate = LocalDate.now();
+                LocalDateTime todaysDate = LocalDateTime.now();
                 boolean available = chkboxAvailable.getState();
                 DateTimeFormatter dformatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 LocalDate localDate = LocalDate.parse(txtManufacturedDate.getText(), dformatter);
@@ -1189,7 +1190,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         Object selectedManufacturer = comboBoxCarManufacturer.getSelectedItem();
-        ArrayList<LocalDate> allUpdates = new ArrayList<LocalDate>();
+        ArrayList<LocalDateTime> allUpdates = new ArrayList<LocalDateTime>();
         
         for(Car c: carFleetDetails.getCarFleetDetails()) {
             if (selectedManufacturer != null && selectedManufacturer.equals(c.getManufacturer())) {
@@ -1227,7 +1228,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         }
         
         if (!allUpdates.isEmpty()) {
-                   LocalDate maxDate = allUpdates.get(0); 
+                   LocalDateTime maxDate = allUpdates.get(0); 
 
         for (int i = 1; i < allUpdates.size()-1; i++) { 
                 if (allUpdates.get(i).isAfter(maxDate)) { 

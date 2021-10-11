@@ -105,7 +105,7 @@
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="lblLastUpdatedValue" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="txtLastUpdatedValue" min="-2" pref="112" max="-2" attributes="0"/>
+                                              <Component id="txtLastUpdatedValue" min="-2" pref="206" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">

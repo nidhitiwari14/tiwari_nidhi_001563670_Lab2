@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import model.Car;
 import model.CarFleet;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
@@ -340,7 +341,6 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         if (!txtManufacturedDate.getText().isEmpty()) {
-            System.out.print("inside " + txtManufacturedDate.getText());
            try
             {
                 formatter.parse(txtManufacturedDate.getText());
@@ -384,7 +384,7 @@ public class CreateJPanel extends javax.swing.JPanel {
           DateTimeFormatter dformatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
             LocalDate localDate = LocalDate.parse(txtManufacturedDate.getText(), dformatter);
             LocalDate localDateCertExpire = LocalDate.parse(txtMaintenanceCertExpDate.getText(), dformatter);
-            LocalDate todaysDate = LocalDate.now();
+            LocalDateTime todaysDate = LocalDateTime.now();
             int modelNumber = Integer.parseInt(txtModelNum.getText());
             long serialNumber = Long.parseLong(txtSerialNum.getText());  
             Object createdManufacturer = comboBoxManufacturerCreate.getSelectedItem();
@@ -393,7 +393,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             int seatCapacity = Integer.parseInt(txtSeatCapacity.getText());
             Object createdUsedByApp = comboBoxCreateUsedBy.getSelectedItem();
             String usedBy = createdUsedByApp.toString();
-            LocalDate lastUpdated = todaysDate;
+            LocalDateTime lastUpdated = todaysDate;
             String city = txtCity.getText();
             LocalDate maintenanceCertExpDate = localDateCertExpire;
             Boolean IsAvailable = chkboxAvailable.getState();

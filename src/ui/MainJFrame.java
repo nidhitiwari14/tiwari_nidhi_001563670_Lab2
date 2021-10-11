@@ -5,6 +5,7 @@
  */
 package ui;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import model.Car;
 import model.CarFleet;
 
@@ -166,7 +167,7 @@ public class MainJFrame extends javax.swing.JFrame {
         c.setSeatCapacity(4);
         c.setUsedByApp("Uber");
         c.setIsAvailable(true);
-        c.setLastUpdated(LocalDate.parse("2020-11-12"));
+        c.setLastUpdated(LocalDateTime.parse("2020-11-12T03:47:08.654"));
         c.setMaintenanceCertExpDate(LocalDate.parse("2025-09-11"));
         c.setCity("Boston");
        
@@ -180,7 +181,7 @@ public class MainJFrame extends javax.swing.JFrame {
         c1.setSeatCapacity(5);
         c1.setUsedByApp("Lyft");
         c1.setIsAvailable(true);
-        c1.setLastUpdated(LocalDate.parse("2021-12-02"));
+        c1.setLastUpdated(LocalDateTime.parse("2021-12-02T06:47:08.518"));
         c1.setMaintenanceCertExpDate(LocalDate.parse("2020-09-11"));
         c1.setCity("NewYork");
              
@@ -193,7 +194,7 @@ public class MainJFrame extends javax.swing.JFrame {
         c2.setSeatCapacity(4);
         c2.setUsedByApp("Ola");
         c2.setIsAvailable(true);
-        c2.setLastUpdated(LocalDate.parse("2021-08-02"));
+        c2.setLastUpdated(LocalDateTime.parse("2021-08-02T05:47:08.644"));
         c2.setMaintenanceCertExpDate(LocalDate.parse("2020-09-05"));
         c2.setCity("Cali");
        
@@ -206,7 +207,7 @@ public class MainJFrame extends javax.swing.JFrame {
         c3.setSeatCapacity(5);
         c3.setUsedByApp("Uber");
         c3.setIsAvailable(false);
-        c3.setLastUpdated(LocalDate.parse("2021-02-11"));
+        c3.setLastUpdated(LocalDateTime.parse("2021-02-11T05:46:08.644"));
         c3.setMaintenanceCertExpDate(LocalDate.parse("2021-09-11"));
         c3.setCity("Texas");
        
@@ -219,7 +220,7 @@ public class MainJFrame extends javax.swing.JFrame {
         c4.setSeatCapacity(7);
         c4.setUsedByApp("Uber");
         c4.setIsAvailable(true);
-        c4.setLastUpdated(LocalDate.parse("2020-11-12"));
+        c4.setLastUpdated(LocalDateTime.parse("2020-11-12T05:44:08.612"));
         c4.setMaintenanceCertExpDate(LocalDate.parse("2025-09-11"));
         c4.setCity("Texas");
      
@@ -232,7 +233,7 @@ public class MainJFrame extends javax.swing.JFrame {
         c5.setSeatCapacity(8);
         c5.setUsedByApp("Uber");
         c5.setIsAvailable(false);
-        c5.setLastUpdated(LocalDate.parse("2020-05-10"));
+        c5.setLastUpdated(LocalDateTime.parse("2020-05-10T05:32:08.600"));
         c5.setMaintenanceCertExpDate(LocalDate.parse("2026-03-07"));
         c5.setCity("Boston");      
            
