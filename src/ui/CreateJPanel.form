@@ -51,15 +51,13 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="comboBoxManufacturerCreate" min="-2" pref="187" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblSerialNumNotUnique" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="comboBoxManufacturerCreate" min="-2" pref="187" max="-2" attributes="0"/>
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="txtSerialNum" linkSize="1" max="32767" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                      <Component id="lblSerialNumNotUnique" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="lblSerialNumErrMsg" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -83,7 +81,7 @@
                                       <Component id="lblManuDateErrMsg" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="355" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="341" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -120,20 +118,13 @@
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="txtSerialNum" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCarSerialNum" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSerialNumNotUnique" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                      <Component id="lblSerialNumNotUnique" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblCarManufacturer" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="comboBoxManufacturerCreate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblCarManufacturer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboBoxManufacturerCreate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">

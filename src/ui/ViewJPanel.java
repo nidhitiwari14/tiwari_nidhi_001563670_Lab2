@@ -122,17 +122,17 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         tblViewCarDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Model Number", "Serial Number", "Manufacturer", "Manufactured Date", "Seat Capacity", "Is Available"
+                "Model Number", "Serial Number", "Manufacturer", "Manufactured Date", "Seat Capacity", "Used By", "City", "Certificate Expire Date", "Is Available", "Last Updated"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -611,9 +611,16 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         lblCountAvlCars.setText("Total Available Cars");
 
+        txtCountUnAvlCars.setBackground(new java.awt.Color(153, 153, 153));
+        txtCountUnAvlCars.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         txtCountUnAvlCars.setText("0");
+        txtCountUnAvlCars.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        txtCountAvlCars.setBackground(new java.awt.Color(0, 102, 204));
+        txtCountAvlCars.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        txtCountAvlCars.setForeground(new java.awt.Color(255, 255, 255));
         txtCountAvlCars.setText("0");
+        txtCountAvlCars.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnCarAvailabilityStatus.setBackground(new java.awt.Color(51, 153, 255));
         btnCarAvailabilityStatus.setText("Filter Car Availability");
@@ -646,14 +653,17 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addGroup(jLayeredPane4Layout.createSequentialGroup()
                                 .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblCountAvlCars, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCountAvlCars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtCountAvlCars, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblCountUnAvlCars)
-                                    .addComponent(txtCountUnAvlCars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtCountUnAvlCars, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 7, Short.MAX_VALUE))
         );
+
+        jLayeredPane4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtCountAvlCars, txtCountUnAvlCars});
+
         jLayeredPane4Layout.setVerticalGroup(
             jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane4Layout.createSequentialGroup()
@@ -667,10 +677,12 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCountAvlCars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCountUnAvlCars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(btnCarAvailabilityStatus)
                 .addContainerGap())
         );
+
+        jLayeredPane4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtCountAvlCars, txtCountUnAvlCars});
 
         lblUsedByApp.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
         lblUsedByApp.setText("Used By App");
@@ -780,15 +792,16 @@ public class ViewJPanel extends javax.swing.JPanel {
                                         .addGap(55, 55, 55)
                                         .addComponent(jLayeredPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGap(987, 987, 987)
-                                    .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1275, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(987, 987, 987)
+                                .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(476, 476, 476)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -843,7 +856,6 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(lblCarModelNum)
@@ -867,7 +879,8 @@ public class ViewJPanel extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(lblUsedBy)
-                                            .addComponent(comboBoxViewUsedBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(comboBoxViewUsedBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLayeredPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(14, 14, 14)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblCity)
@@ -1180,23 +1193,31 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         for(Car c: carFleetDetails.getCarFleetDetails()) {
             if (selectedManufacturer != null && selectedManufacturer.equals(c.getManufacturer())) {
-            Object [] row = new Object[6];
+            Object [] row = new Object[10];
             row[0] = c;
             row[1] = c.getSerialNumber();
             row[2] = c.getManufacturer();
             row[3] = c.getManufacturedDate();
             row[4] = c.getSeatCapacity();
-            row[5] = c.isIsAvailable();
+            row[5] = c.getUsedByApp();
+            row[6] = c.getCity();
+            row[7] = c.getMaintenanceCertExpDate();
+            row[8] = c.isIsAvailable();
+            row[9] = c.getLastUpdated();
             
             model.addRow(row); 
             } else if(selectedManufacturer == null || selectedManufacturer == "All") {
-                Object [] row = new Object[6];
+                Object [] row = new Object[10];
             row[0] = c;
             row[1] = c.getSerialNumber();
             row[2] = c.getManufacturer();
             row[3] = c.getManufacturedDate();
             row[4] = c.getSeatCapacity();
-            row[5] = c.isIsAvailable();
+            row[5] = c.getUsedByApp();
+            row[6] = c.getCity();
+            row[7] = c.getMaintenanceCertExpDate();
+            row[8] = c.isIsAvailable();
+            row[9] = c.getLastUpdated();
             
             model.addRow(row); 
             }
@@ -1226,23 +1247,31 @@ public class ViewJPanel extends javax.swing.JPanel {
         
         for(Car c: carFleetDetails.getCarFleetDetails()) {
             if (selectedUsedByApp != null && selectedUsedByApp.equals(c.getUsedByApp())) {
-            Object [] row = new Object[6];
+            Object [] row = new Object[10];
             row[0] = c;
             row[1] = c.getSerialNumber();
             row[2] = c.getManufacturer();
             row[3] = c.getManufacturedDate();
             row[4] = c.getSeatCapacity();
-            row[5] = c.isIsAvailable();
+            row[5] = c.getUsedByApp();
+            row[6] = c.getCity();
+            row[7] = c.getMaintenanceCertExpDate();
+            row[8] = c.isIsAvailable();
+            row[9] = c.getLastUpdated();
             
             model.addRow(row); 
             } else if(selectedUsedByApp == null || selectedUsedByApp == "All") {
-                Object [] row = new Object[6];
+                Object [] row = new Object[10];
             row[0] = c;
             row[1] = c.getSerialNumber();
             row[2] = c.getManufacturer();
             row[3] = c.getManufacturedDate();
             row[4] = c.getSeatCapacity();
-            row[5] = c.isIsAvailable();
+            row[5] = c.getUsedByApp();
+            row[6] = c.getCity();
+            row[7] = c.getMaintenanceCertExpDate();
+            row[8] = c.isIsAvailable();
+            row[9] = c.getLastUpdated();
             
             model.addRow(row); 
             }
@@ -1257,13 +1286,17 @@ public class ViewJPanel extends javax.swing.JPanel {
         for(Car c: carFleetDetails.getCarFleetDetails()) {
             
             if(c.isIsAvailable() == true) {
-                Object [] row = new Object[6];
+                Object [] row = new Object[10];
                 row[0] = c;
                 row[1] = c.getSerialNumber();
                 row[2] = c.getManufacturer();
                 row[3] = c.getManufacturedDate();
                 row[4] = c.getSeatCapacity();
-                row[5] = c.isIsAvailable();
+                row[5] = c.getUsedByApp();
+                row[6] = c.getCity();
+                row[7] = c.getMaintenanceCertExpDate();
+                row[8] = c.isIsAvailable();
+                row[9] = c.getLastUpdated();
 
                 model.addRow(row);
             }
@@ -1278,13 +1311,17 @@ public class ViewJPanel extends javax.swing.JPanel {
         for(Car c: carFleetDetails.getCarFleetDetails()) {
             
             if(c.isIsAvailable() == true) {
-                Object [] row = new Object[6];
+                Object [] row = new Object[10];
                 row[0] = c;
                 row[1] = c.getSerialNumber();
                 row[2] = c.getManufacturer();
                 row[3] = c.getManufacturedDate();
                 row[4] = c.getSeatCapacity();
-                row[5] = c.isIsAvailable();
+                row[5] = c.getUsedByApp();
+                row[6] = c.getCity();
+                row[7] = c.getMaintenanceCertExpDate();
+                row[8] = c.isIsAvailable();
+                row[9] = c.getLastUpdated();
                 
                 if (model.getRowCount() == 0) {
                     model.addRow(row);
@@ -1303,13 +1340,17 @@ public class ViewJPanel extends javax.swing.JPanel {
             int manuYear = c.getManufacturedDate().getYear();
             
             if(manuYear == manufacturedYear) {
-                Object [] row = new Object[6];
+                Object [] row = new Object[10];
                 row[0] = c;
                 row[1] = c.getSerialNumber();
                 row[2] = c.getManufacturer();
                 row[3] = c.getManufacturedDate();
                 row[4] = c.getSeatCapacity();
-                row[5] = c.isIsAvailable();
+                row[5] = c.getUsedByApp();
+                row[6] = c.getCity();
+                row[7] = c.getMaintenanceCertExpDate();
+                row[8] = c.isIsAvailable();
+                row[9] = c.getLastUpdated();
 
                 model.addRow(row);
             }
@@ -1330,13 +1371,17 @@ public class ViewJPanel extends javax.swing.JPanel {
                countMaxCapacityInt = Integer.parseInt(selectedMaxCapacity.toString()); 
             }
             if (c.getSeatCapacity() <= countMaxCapacityInt && c.getSeatCapacity() >= countMinCapacityInt) {
-            Object [] row = new Object[6];
+            Object [] row = new Object[10];
             row[0] = c;
             row[1] = c.getSerialNumber();
             row[2] = c.getManufacturer();
             row[3] = c.getManufacturedDate();
             row[4] = c.getSeatCapacity();
-            row[5] = c.isIsAvailable();
+            row[5] = c.getUsedByApp();
+            row[6] = c.getCity();
+            row[7] = c.getMaintenanceCertExpDate();
+            row[8] = c.isIsAvailable();
+            row[9] = c.getLastUpdated();
             
             model.addRow(row); 
             } 
@@ -1353,13 +1398,17 @@ public class ViewJPanel extends javax.swing.JPanel {
             long seriNum = c.getSerialNumber();
             
             if(txtSerialNumberFilter.getText() != "" && seriNum == serialNumber) {
-                Object [] row = new Object[6];
+                Object [] row = new Object[10];
                 row[0] = c;
                 row[1] = c.getSerialNumber();
                 row[2] = c.getManufacturer();
                 row[3] = c.getManufacturedDate();
                 row[4] = c.getSeatCapacity();
-                row[5] = c.isIsAvailable();
+                row[5] = c.getUsedByApp();
+                row[6] = c.getCity();
+                row[7] = c.getMaintenanceCertExpDate();
+                row[8] = c.isIsAvailable();
+                row[9] = c.getLastUpdated();
 
                 model.addRow(row);
             }
@@ -1375,13 +1424,17 @@ public class ViewJPanel extends javax.swing.JPanel {
             long modelNum = c.getModelNumber();
             
             if(modelNum == modelNumber) {
-                Object [] row = new Object[6];
+                Object [] row = new Object[10];
                 row[0] = c;
                 row[1] = c.getSerialNumber();
                 row[2] = c.getManufacturer();
                 row[3] = c.getManufacturedDate();
                 row[4] = c.getSeatCapacity();
-                row[5] = c.isIsAvailable();
+                row[5] = c.getUsedByApp();
+                row[6] = c.getCity();
+                row[7] = c.getMaintenanceCertExpDate();
+                row[8] = c.isIsAvailable();
+                row[9] = c.getLastUpdated();
 
                 model.addRow(row);
             }
@@ -1396,13 +1449,17 @@ public class ViewJPanel extends javax.swing.JPanel {
             String city = c.getCity();
             
             if(txtCityFilter.getText().equals(city)) {
-                Object [] row = new Object[6];
+                Object [] row = new Object[10];
                 row[0] = c;
                 row[1] = c.getSerialNumber();
                 row[2] = c.getManufacturer();
                 row[3] = c.getManufacturedDate();
                 row[4] = c.getSeatCapacity();
-                row[5] = c.isIsAvailable();
+                row[5] = c.getUsedByApp();
+                row[6] = c.getCity();
+                row[7] = c.getMaintenanceCertExpDate();
+                row[8] = c.isIsAvailable();
+                row[9] = c.getLastUpdated();
 
                 model.addRow(row);
             }
@@ -1418,13 +1475,17 @@ public class ViewJPanel extends javax.swing.JPanel {
             LocalDate expiry = c.getMaintenanceCertExpDate();
             
             if(expiry.isBefore(lt)) {
-                Object [] row = new Object[6];
+                Object [] row = new Object[10];
                 row[0] = c;
                 row[1] = c.getSerialNumber();
                 row[2] = c.getManufacturer();
                 row[3] = c.getManufacturedDate();
                 row[4] = c.getSeatCapacity();
-                row[5] = c.isIsAvailable();
+                row[5] = c.getUsedByApp();
+                row[6] = c.getCity();
+                row[7] = c.getMaintenanceCertExpDate();
+                row[8] = c.isIsAvailable();
+                row[9] = c.getLastUpdated();
 
                 model.addRow(row);
             }

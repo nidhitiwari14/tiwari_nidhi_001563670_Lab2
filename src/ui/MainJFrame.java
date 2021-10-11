@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package ui;
-import java.awt.CardLayout;
 import java.time.LocalDate;
 import model.Car;
 import model.CarFleet;
@@ -208,6 +207,7 @@ public class MainJFrame extends javax.swing.JFrame {
         c3.setUsedByApp("Uber");
         c3.setIsAvailable(false);
         c3.setLastUpdated(LocalDate.parse("2021-02-11"));
+        c3.setMaintenanceCertExpDate(LocalDate.parse("2021-09-11"));
         c3.setCity("Texas");
        
         Car c4 = carFleetDetails.addNewCar();

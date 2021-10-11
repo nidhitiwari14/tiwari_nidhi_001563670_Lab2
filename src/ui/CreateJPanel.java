@@ -237,14 +237,13 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(comboBoxManufacturerCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblSerialNumNotUnique))
+                                    .addComponent(comboBoxManufacturerCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(txtSerialNum)
-                                        .addGap(18, 18, 18)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(lblSerialNumNotUnique)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblSerialNumErrMsg))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(txtModelNum)
@@ -262,7 +261,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                                         .addComponent(txtManufacturedDate)
                                         .addGap(18, 18, 18)
                                         .addComponent(lblManuDateErrMsg)))
-                                .addGap(0, 355, Short.MAX_VALUE))))
+                                .addGap(0, 341, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(126, 126, 126)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,16 +290,12 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(lblSerialNumErrMsg)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtSerialNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblCarSerialNum)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(lblSerialNumNotUnique))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCarManufacturer)
-                            .addComponent(comboBoxManufacturerCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(lblCarSerialNum)
+                        .addComponent(lblSerialNumNotUnique)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCarManufacturer)
+                    .addComponent(comboBoxManufacturerCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblManufacturedDate)
@@ -345,6 +340,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         if (!txtManufacturedDate.getText().isEmpty()) {
+            System.out.print("inside " + txtManufacturedDate.getText());
            try
             {
                 formatter.parse(txtManufacturedDate.getText());
@@ -381,8 +377,9 @@ public class CreateJPanel extends javax.swing.JPanel {
                 } else {
                    isFormValid = true;
                    isValid = true; 
+                   lblSerialNumNotUnique.setText("");
                 }
-            }
+        }
         if (isFormValid) {
           DateTimeFormatter dformatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
             LocalDate localDate = LocalDate.parse(txtManufacturedDate.getText(), dformatter);
